@@ -14,17 +14,33 @@ router.get('/', async (req, res) => {
         });
     } catch (err) {
         res.status(500).json(err);
+        console.log(err);
     }
 });
 
-router.get('/post/:id', async (req, res) => {
+router.get('/dashboard', async (req, res) => {
     try {
-        const postData = await Post.findByPk(req.params.id, {
-            include: [{ model: User }],
-        });
-        const post = postData.get({ plain: true });
-        res.render('post', {
-            ...post,
+      const posts = await Post.findAll({
+        where: { user_id: req.session.user_id }
+      });
+      
+      console.log('Fetched posts:', posts);
+  
+      res.render('dashboard', { posts });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error fetching user posts');
+    }
+  });
+
+router.get('/dashboard', async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id, {
+                include: [{ model: Post }],
+                });
+        const user = userData.get({ plain: true });
+        res.render('dashboard', {
+            ...user,
             loggedIn: req.session.loggedIn,
         });
     } catch (err) {

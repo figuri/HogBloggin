@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
             include: [{ model: User }],
         });
         const posts = postData.map((post) => post.get({ plain: true }));
-        res.render('homepage', {
+        res.render('welcome', {
             posts,
             loggedIn: req.session.loggedIn,
         });
@@ -125,7 +125,9 @@ router.get('/login', (req, res) => {
         return;
     }
     res.render('login');
+    console.log(res)
 }
+
 );
 // signup route
 router.get('/signup', (req, res) => {

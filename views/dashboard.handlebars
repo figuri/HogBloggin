@@ -1,19 +1,19 @@
 {{> navbar}}
 
-{{!-- Set the page title --}}
-{{#set 'pageTitle'}}Dashboard{{/set}}
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/styles/dashboard.css" />
+</head>
 
-{{!-- Include dashboard-specific styles (if needed) --}}
-{{#set 'styles'}}
-  <link rel="stylesheet" href="/styles/dashboard.css">
-{{/set}}
+<header>
+  <h1>Dashboard</h1>
+</header>
 
-{{!-- Include dashboard-specific content --}}
-{{#content 'content'}}
+
+<div>
   <h1>Welcome to Your Dashboard</h1>
-
   <a href="/create" class="btn btn-primary">Create New Post</a>
-
+</div>
   {{!-- List the user's existing blog posts --}}
   {{#if posts}}
     <h2>Your Blog Posts</h2>
@@ -30,4 +30,3 @@
   {{else}}
     <p>You haven't created any posts yet.</p>
   {{/if}}
-{{/content}}

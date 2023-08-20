@@ -1,10 +1,13 @@
-{{#set 'pageTitle'}}Login{{/set}}
-{{#set 'styles'}}
-  <link rel="stylesheet" href="/styles/login.css">
-{{/set}}
 
-{{!-- set up  login specific content --}}
-{{#content 'content'}}
+<head>
+  <title>Login</title>
+<link rel="stylesheet" href="/styles/login.css" />
+</head>
+
+<header>
+  <h1>Login</h1>
+</header>
+
 <div>
   <h1>Login</h1>
   <form action="/login" method="POST">
@@ -41,4 +44,3 @@
   <p>&copy; 2020 HogBloggin</p>
 </footer>
 <script src="/scripts/login.js"></script>
-{{/content}}

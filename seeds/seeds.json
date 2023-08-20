@@ -41,12 +41,12 @@
     },
     {
         "title": "Angular",
-        "post_text": "Angular is a platform for building mobile and desktop web applications. Angular is a TypeScript-based open-source web application framework.",
+        "post_text": "Angular is a TypeScript-based open-source web application framework.",
         "user_id": 3
     },
     {
         "title": "Vue",
-        "post_text": "Vue.js is an open-source model–view–viewmodel front end JavaScript framework for building user interfaces and single-page applications.",
+        "post_text": "Vue.js is an open-source model–view–viewmodel front end JavaScript framework.",
         "user_id": 1
     },
     {
@@ -61,7 +61,7 @@
     },
     {
         "title": "Foundation",
-        "post_text": "Foundation is a responsive front-end framework. Foundation provides a responsive grid and HTML and CSS UI components, templates, and code snippets, including typography, forms, buttons, navigation and other interface elements, as well as optional functionality provided by JavaScript extensions.",
+        "post_text": "Foundation is a responsive front-end framework. has both html and css files. that can be used to build websites, apps, and emails.",
         "user_id": 1
     },
     {

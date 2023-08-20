@@ -1,0 +1,42 @@
+{{#set 'pageTitle'}}Login{{/set}}
+{{#set 'styles'}}
+  <link rel="stylesheet" href="/styles/login.css">
+{{/set}}
+
+{{!-- set up  login specific content --}}
+<div>
+  <h1>Login</h1>
+  <form action="/login" method="POST">
+    <div>
+      <label for="email">Email</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Enter your email"
+        required
+      />
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Enter your password"
+        required
+      />
+    </div>
+    <div>
+      <button type="submit">Login</button>
+    </div>
+  </form>
+  <div>
+    <a href="/signup">Sign up.</a>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2020 HogBloggin</p>
+</footer>
+<script src="/scripts/login.js"></script>

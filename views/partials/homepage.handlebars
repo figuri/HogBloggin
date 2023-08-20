@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HogBloggin</title>
+</head>
+<body>
+    <header>
+    <h1>Blog About Coding</h1>
+    </header>
+
+    <main>
+    <h2>Posts</h2>
+    <ul>
+        {{#each posts}}
+        <li>
+        <a href="/post/{{ id }}">{{ title }}</a>
+        <span>Created by{{ username }} at {{ createdAt }}</span>
+        {{!-- make a spot to add a comment to a post --}}
+        <a href="/post/comment/{{ id }}" class="btn btn-secondary">Comment</a>
+        {{!-- make a spot to delete your comment --}}
+        <a href="/post/delete/{{ id }}" class="btn btn-danger">Delete</a>
+        </li>
+        {{/each}}
+    </ul>
+    </main>
+
+    <footer>
+    <p>&copy; 2020 HogBloggin</p>
+    </footer>
+</body>
+</html>

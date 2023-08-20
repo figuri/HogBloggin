@@ -1,4 +1,4 @@
-{{!< main}}
+{{> navbar}}
 
 {{!-- Set the page title --}}
 {{#set 'pageTitle'}}Dashboard{{/set}}
@@ -12,7 +12,7 @@
 {{#content 'content'}}
   <h1>Welcome to Your Dashboard</h1>
 
-  <a href="/post/new" class="btn btn-primary">Create New Post</a>
+  <a href="/create" class="btn btn-primary">Create New Post</a>
 
   {{!-- List the user's existing blog posts --}}
   {{#if posts}}

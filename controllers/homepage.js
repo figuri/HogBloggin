@@ -4,7 +4,7 @@ const { User, Post, Comment } = require('../models');
 
 // get route to display all posts from all users (homepage)
 
-router.get('/home', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const postData = await Post.findAll({
             include: [{ model: User }],

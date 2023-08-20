@@ -4,6 +4,7 @@
 {{/set}}
 
 {{!-- set up  login specific content --}}
+{{#content 'content'}}
 <div>
   <h1>Login</h1>
   <form action="/login" method="POST">
@@ -40,3 +41,4 @@
   <p>&copy; 2020 HogBloggin</p>
 </footer>
 <script src="/scripts/login.js"></script>
+{{/content}}

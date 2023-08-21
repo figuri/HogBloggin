@@ -1,54 +1,39 @@
-<div>
-  <h1>Sign Up</h1>
+<head>
+  <title>Sign up</title>
+<link rel="stylesheet" href="/styles/signup.css"/>
+</head>
+
+<header>
+  <h1>HogBloggin</h1>
+</header>
+
+<div id="inputcontainer">
   <form action="/signup" method="POST">
-    <div>
-      <label for="username">Username</label>
-      <input
-        type="text"
-        name="username"
-        id="username"
-        placeholder="Enter your username"
-        required
-      />
+    <div id="usernameinput">
+      <label id="user" for="username">Username</label>
+      <input type="text" name="username" id="username" placeholder="Enter your username" required/>
     </div>
-    <div>
-      <label for="email">Email</label>
-      <input
-        type="email"
-        name="email"
-        id="email"
-        placeholder="Enter your email"
-        required
-      />
+    <div id="emailinput">
+      <label id="em" for="email">Email</label>
+      <input type="email" name="email" id="email" placeholder="Enter your email" required/>
     </div>
-    <div>
-      <label for="password">Password</label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        placeholder="Enter your password"
-        required
-      />
+    <div id='passwordinput'>
+      <label id="pw" for="password">Password</label>
+      <input type="password" name="password" id="password" placeholder="Enter your password" required />
     </div>
-    <div>
-      <label for="confirmPassword">Confirm Password</label>
-      <input
-        type="password"
-        name="confirmPassword"
-        id="confirmPassword"
-        placeholder="Confirm your password"
-        required
-      />
-    </div>
-    <div>
-      <button type="submit">Sign Up</button>
+    <div id="confirminput">
+      <label id="validate" for="confirmPassword">Confirm Password</label>
+      <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm your password" required />
     </div>
   </form>
-  <footer>
-    <p>&copy; 2020 HogBloggin</p>
-  </footer>
-  <div>
-    <a href="/login">Login.</a>
+  <div id="signup-container">
+      <button id="done" type="submit">Sign Up</button>
   </div>
-</div>
+
+  <div id="logincontainer">
+    <a id="lgnbtn" href="/login">Login.</a>
+  </div>
+</div>  
+<footer>
+    <p>&copy; 2020 HogBloggin</p>
+</footer>

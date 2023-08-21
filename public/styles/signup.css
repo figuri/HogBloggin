@@ -1,0 +1,149 @@
+#su {
+    margin: 10px;
+    color: var(--darkblue);
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    border: 2px solid var(--darkblue);
+    border-radius: 25px;
+    padding: 10px;
+    background-color: var(--lightblue);
+}
+
+#su:hover {
+    margin: 10px;
+    color: var(--lightblue);
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    border: 2px solid var(--lightblue);
+    border-radius: 25px;
+    padding: 10px;
+    background-color: var(--darkblue);
+    cursor: pointer;
+}
+
+#signup-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+    margin-top: 20px;
+    background-color: var(--darkblue);
+    padding: 10px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: var(--pastelblue);
+    text-align: center;
+}
+
+input::placeholder {
+    color: grey;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#done {
+    color: white;
+    background-color: var(--darkblue);
+    border: 2px solid var(--lightblue);
+    border-radius: 25px;
+    padding: 10px;
+    box-shadow: 5px 5px 5px var(--lightblue);
+}
+
+#done:hover {
+    color: var(--darkblue);
+    background-color: var(--lightblue);
+    border: 2px solid var(--darkblue);
+    border-radius: 25px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+:root {
+    --lightblue: #4997d0;
+    --darkblue: #003366;
+    --pastelblue: #9aceeb;
+    --simplegrey: #a9a9a9;
+}
+
+header {
+    background-color: var(--darkblue);
+    padding: 10px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: var(--pastelblue);
+    text-align: center;
+}
+
+body {
+    background-color: var(--simplegrey);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#inputcontainer {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    border: 1px solid var(--darkblue);
+    padding: 15px;
+    border-radius: 25px;
+    background-color: var(--pastelblue);
+    box-shadow: 5px 5px 5px var(--darkblue);
+}
+
+#em, #pw, #user, #validate {
+    color: var(--darkblue);
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#logincontainer {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#lgnbtn {
+    margin: 10px;
+    color: var(--darkblue);
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    border: 2px solid var(--darkblue);
+    border-radius: 25px;
+    padding: 10px;
+    background-color: var(--lightblue);
+    box-shadow: 5px 5px 5px var(--darkblue);
+}
+
+#lgnbtn:hover {
+    margin: 10px;
+    color: var(--lightblue);
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    border: 2px solid var(--lightblue);
+    border-radius: 25px;
+    padding: 10px;
+    background-color: var(--darkblue);
+    cursor: pointer;
+}

@@ -28,7 +28,7 @@ signupButton.addEventListener('click', async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
-            document.location.replace('/home');
+            document.location.replace('/homepage');
         }
         if (!response.ok) {
             const errorMessage = await response.text();

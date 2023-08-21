@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { User, Post, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
 // get route for landing page (welcome.handlebars)
 
@@ -27,14 +28,14 @@ router.get('/homepage', async (req, res) => {
         // order posts by date created
         // include user and comment models to display username and comment text
         const postData = await Post.findAll({
-            include: [{ model: User, Comment }], order: [['date_created', 'DESC']]
+            include: [{ model: User }, { model: Comment }], order: [['date_created', 'DESC']]
         });
         const posts = postData.map((post) => post.get({ plain: true }));
-        // if user is not logged in, redirect to login page
-        if (!loggedIn) {
+        if (!req.session.loggedIn) {
             res.redirect('/login');
             return;
         }
+        // pass serialized data and session flag into template
         res.render('homepage', {
             posts,
             loggedIn: req.session.loggedIn,
@@ -97,21 +98,23 @@ router.delete('/delete/:id', async (req, res) => {
 
 router.get('/dashboard', async (req, res) => {
     try {
-        const posts = await Post.findAll({
-            where: { user_id: req.session.user_id }
-        });
-        console.log('Fetched posts:', posts);
-        if (!loggedIn) {
-            res.redirect('/login');
-            return;
-        } else {
-            res.render('dashboard', { posts });
-        }
+      if (!req.session.loggedIn) {
+        res.redirect('/login');
+        return;
+      }
+  
+      const userId = req.session.user_id; 
+      const posts = await Post.findAll({
+        where: { user_id: userId }
+      });
+  
+      console.log('Fetched posts:', posts);
+      res.render('dashboard', { posts });
     } catch (error) {
-        console.error(error);
-        res.status(500).send('Error fetching user posts');
+      console.error(error);
+      res.status(500).send('Error fetching user posts');
     }
-});
+  });
 
 //   route to make a comment on a post (homepage.handlebars)
 
@@ -163,6 +166,7 @@ router.get('/signup', (req, res) => {
         return;
     }
     res.render('signup');
+    console.log(res)
 }
 );
 

@@ -29,9 +29,11 @@ signupButton.addEventListener('click', async (event) => {
         });
         if (response.ok) {
             document.location.replace('/home');
-        } else {
+        }
+        if (!response.ok) {
+            const errorMessage = await response.text();
             alert('Failed to Sign-Up');
-            console.log(err);
+            console.log(errorMessage)
         }
     }
 });

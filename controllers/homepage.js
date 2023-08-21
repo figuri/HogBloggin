@@ -46,6 +46,36 @@ router.get('/homepage', async (req, res) => {
     }
 });
 
+// get a single user by id
+
+router.get('/user/:id', async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.params.id, {
+            include: [{ model: Post }],
+        });
+        const user = userData.get({ plain: true });
+        res.json(user);
+    } catch (err) {
+        res.status(500).json(err);
+        console.log(err);
+    }
+});
+
+// get post by ID 
+
+router.get('/post/:id', async (req, res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id, {
+            include: [{ model: User }, { model: Comment }],
+        });
+        const post = postData.get({ plain: true });
+        res.json(post);
+    } catch (err) {
+        res.status(500).json(err);
+        console.log(err);
+    }
+});
+
 // make a post(dashboard.handlebars)
 router.post('/create', async (req, res) => {
     try {

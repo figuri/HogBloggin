@@ -9,10 +9,9 @@
   <h1>Dashboard</h1>
 </header>
 
-
 <div>
   <h1>Welcome to Your Dashboard</h1>
-  <a href="/create" class="btn btn-primary">Create New Post</a>
+  <a href="/create" class="btn">Create New Post</a>
 </div>
   {{!-- List the user's existing blog posts --}}
   {{#if posts}}
@@ -21,7 +20,7 @@
       {{#each posts}}
         <li>
           <a href="/post/{{ id }}">{{ title }}</a>
-          <span>{{ createdAt }}</span>
+          <span>{{ date_created }}</span>
           <a href="/post/edit/{{ id }}" class="btn btn-secondary">Edit</a>
           <a href="/post/delete/{{ id }}" class="btn btn-danger">Delete</a>
         </li>

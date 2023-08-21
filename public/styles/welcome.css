@@ -1,0 +1,62 @@
+:root {
+    --lightblue: #4997d0;
+    --darkblue: #003366;
+    --pastelblue: #9aceeb;
+    --simplegrey: #a9a9a9;
+}
+
+header {
+    background-color: var(--darkblue);
+    padding: 10px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: var(--pastelblue);
+    text-align: center;
+}
+
+body {
+    background-color: var(--simplegrey);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#intromessage {
+    font-size: 20px;
+    text-align: center;
+    border: 2px solid var(--darkblue);
+    border-radius: 25px;
+    padding: 10px;
+    box-shadow: 5px 5px 5px var(--darkblue);
+    background-color: var(--lightblue);
+}
+
+#intromessage h2 {
+    font-size: 35px;
+    color: var(--darkblue);
+}
+ 
+#buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#btn {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 25px;
+    border: 2px solid var(--darkblue);
+    background-color: var(--lightblue);
+    box-shadow: 5px 5px 5px var(--darkblue);
+    font-size: 20px;
+    color: var(--darkblue);
+    font-weight: bold;
+}

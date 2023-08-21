@@ -1,35 +1,23 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <title>{{ pageTitle }}</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="/styles/dashobaord.css">
-  <link rel="stylesheet" href="/styles/homepage.css">
-  <link rel="stylesheet" href="/styles/login.css">
-  <link rel="stylesheet" href="/styles/signup.css">
-  <link rel="stylesheet" href="/styles/main.css">
-</head>
-<body>
-<header>
-    <h1>{{ pageTitle }}</h1>
-  <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/dashboard">Dashboard</a></li>
-      <li><a href="/logout">Logout</a></li>
-    </ul>
-  </nav>
-</header>
-  <!-- Render the main content from other views -->
-  {{{ body }}}
-  <footer>
-    <p>&copy; 2023 Your Tech Blog</p>
-  </footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="/scripts/login.js"></script>
-  <script src="/scripts/dash.js"></script>
-  <script src="/scripts/signup.js"></script>
-  <script src="/scripts/home.js"></script>
-  <script src="/scripts/script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HogBloggin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+    <link rel="stylesheet" href="/styles/dashobaord.css" />
+    <link rel="stylesheet" href="/styles/homepage.css" />
+    <link rel="stylesheet" href="/styles/login.css" />
+    <link rel="stylesheet" href="/styles/signup.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <!-- Render the main content from other views -->
+    {{{body}}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/scripts/login.js"></script>
+    <script src="/scripts/dash.js"></script>
+    <script src="/scripts/signup.js"></script>
+    <script src="/scripts/home.js"></script>
+    <script src="/scripts/script.js"></script>
+  </body>
 </html>

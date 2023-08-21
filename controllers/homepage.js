@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { User, Post, Comment } = require('../models');
 
-// get route to display all posts from all users (homepage)
+// get route for landing page (welcome.handlebars)
 
 router.get('/', async (req, res) => {
     try {
@@ -20,8 +20,32 @@ router.get('/', async (req, res) => {
     }
 });
 
-// make a post
+// get all posts for homepage (homepage.handlebars)
 
+router.get('/homepage', async (req, res) => {
+    try {
+        // order posts by date created
+        // include user and comment models to display username and comment text
+        const postData = await Post.findAll({
+            include: [{ model: User, Comment }], order: [['date_created', 'DESC']]
+        });
+        const posts = postData.map((post) => post.get({ plain: true }));
+        // if user is not logged in, redirect to login page
+        if (!loggedIn) {
+            res.redirect('/login');
+            return;
+        }
+        res.render('homepage', {
+            posts,
+            loggedIn: req.session.loggedIn,
+        });
+    } catch (err) {
+        res.status(500).json(err);
+        console.log(err);
+    }
+});
+
+// make a post(dashboard.handlebars)
 router.post('/create', async (req, res) => {
     try {
         const newPost = await Post.create({
@@ -30,14 +54,14 @@ router.post('/create', async (req, res) => {
             title: req.body.title,
             post_text: req.body.post_text,
             date_created: req.body.date_created,
-            });
+        });
         res.status(200).json(newPost);
     } catch (err) {
         res.status(400).json(err);
     }
 });
 
-// edit a post by ID
+// edit a post by ID (dashboard.handlebars)
 
 router.put('/update/:id', async (req, res) => {
     try {
@@ -45,15 +69,15 @@ router.put('/update/:id', async (req, res) => {
             where: {
                 id: req.params.id,
                 user_id: req.session.user_id,
-                },
-            });
+            },
+        });
         res.status(200).json(updatedPost);
     } catch (err) {
         res.status(400).json(err);
     }
 });
 
-// delete a post by ID
+// delete a post by ID (dashboard.handlebars)
 
 router.delete('/delete/:id', async (req, res) => {
     try {
@@ -61,32 +85,35 @@ router.delete('/delete/:id', async (req, res) => {
             where: {
                 id: req.params.id,
                 user_id: req.session.user_id,
-                },
-            });
+            },
+        });
         res.status(200).json(deletedPost);
     } catch (err) {
         res.status(400).json(err);
     }
 });
 
-// get route to display dashboard where user can create/edit/delete posts
+// get route to display dashboard where user can create/edit/delete posts (dashboard.handlebars)
 
 router.get('/dashboard', async (req, res) => {
     try {
-      const posts = await Post.findAll({
-        where: { user_id: req.session.user_id }
-      });
-      
-      console.log('Fetched posts:', posts);
-  
-      res.render('dashboard', { posts });
+        const posts = await Post.findAll({
+            where: { user_id: req.session.user_id }
+        });
+        console.log('Fetched posts:', posts);
+        if (!loggedIn) {
+            res.redirect('/login');
+            return;
+        } else {
+            res.render('dashboard', { posts });
+        }
     } catch (error) {
-      console.error(error);
-      res.status(500).send('Error fetching user posts');
+        console.error(error);
+        res.status(500).send('Error fetching user posts');
     }
-  });
+});
 
-//   route to make a comment on a post
+//   route to make a comment on a post (homepage.handlebars)
 
 router.post('/comment', async (req, res) => {
     try {
@@ -95,14 +122,14 @@ router.post('/comment', async (req, res) => {
             user_id: req.session.user_id,
             comment_text: req.body.comment_text,
             post_id: req.body.post_id,
-            });
+        });
         res.status(200).json(newComment);
     } catch (err) {
         res.status(400).json(err);
     }
 });
 
-// route to delete a comment by ID only if you are the user who made the comment
+// route to delete a comment by ID only if you are the user who made the comment (homepage.handlebars)
 
 router.delete('/comment/:id', async (req, res) => {
     try {
@@ -110,15 +137,15 @@ router.delete('/comment/:id', async (req, res) => {
             where: {
                 id: req.params.id,
                 user_id: req.session.user_id,
-                },
-            });
+            },
+        });
         res.status(200).json(deletedComment);
     } catch (err) {
         res.status(400).json(err);
     }
 });
 
-// login route
+// login route (login.handlebars)
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
@@ -129,7 +156,7 @@ router.get('/login', (req, res) => {
 }
 
 );
-// signup route
+// signup route (signup.handlebars)
 router.get('/signup', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');

@@ -1,43 +1,30 @@
-
 <head>
   <title>Login</title>
 <link rel="stylesheet" href="/styles/login.css" />
 </head>
 
 <header>
-  <h1>Login</h1>
+  <h1>HogBloggin</h1>
 </header>
 
-<div>
-  <h1>Login</h1>
+<div id="inputcontainer">
   <form action="/login" method="POST">
-    <div>
-      <label for="email">Email</label>
-      <input
-        type="email"
-        name="email"
-        id="email"
-        placeholder="Enter your email"
-        required
-      />
+    <div id="emailinput">
+      <label id="em" for="email">Email</label>
+      <input type="email" name="email" id="email" placeholder="Enter your email" required/>
+    </div>
+    <div id="passwordinpt">
+      <label id="pw" for="password">Password</label>
+      <input type="password" name="password" id="password" placeholder="Enter your password" required/>
     </div>
     <div>
-      <label for="password">Password</label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        placeholder="Enter your password"
-        required
-      />
-    </div>
-    <div>
-      <button type="submit">Login</button>
+      <button id="done" type="submit">Login</button>
     </div>
   </form>
-  <div>
-    <a href="/signup">Sign up.</a>
-  </div>
+</div>
+
+<div id="signup-container">
+    <a id="su" href="/signup">Sign up.</a>
 </div>
 
 <footer>

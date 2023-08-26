@@ -22,7 +22,7 @@ router.post('/signup', async (req, res) => {
 });
 
 // get all users
-router.get('/', async (req, res) => {
+router.get('/user', async (req, res) => {
   try {
     const userData = await User.findAll({
       include: [{ model: Post }, { model: Comment }],
@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
 });
 
 // get a single user by id
-router.get('/:id', async (req, res) => {
+router.get('user/:id', async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id, {
       include: [{ model: Post }],
@@ -48,7 +48,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // edit a user by ID
-router.put('/:id', async (req, res) => {
+router.put('user/:id', async (req, res) => {
   try {
     const updatedUser = await User.update(req.body, {
       where: {
@@ -62,7 +62,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // delete a user by ID
-router.delete('/:id', async (req, res) => {
+router.delete('user/:id', async (req, res) => {
   try {
     const deletedUser = await User.destroy({
       where: {

@@ -4,7 +4,7 @@ CREATE DATABASE blog_db;
 
 USE blog_db;
 
-CREATE TABLE users (
+CREATE TABLE User (
     id INT NOT NULL AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
@@ -12,22 +12,22 @@ CREATE TABLE users (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE posts (
+CREATE TABLE Post (
     id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(50) NOT NULL,
-    post_text VARCHAR(255) NOT NULL,
-    user_id INT NOT NULL,
+    Post_text VARCHAR(255) NOT NULL,
+    User_id INT NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    FOREIGN KEY (User_id) REFERENCES User(id)
 );
 
-CREATE TABLE comments (
+CREATE TABLE Comment (
     id INT NOT NULL AUTO_INCREMENT,
     comment_text VARCHAR(255) NOT NULL,
-    user_id INT NOT NULL,
-    post_id INT NOT NULL,
+    User_id INT NOT NULL,
+    Post_id INT NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (post_id) REFERENCES posts(id)
+    FOREIGN KEY (User_id) REFERENCES User(id),
+    FOREIGN KEY (Post_id) REFERENCES Post(id)
 );
 

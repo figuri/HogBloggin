@@ -36,5 +36,5 @@ app.use(routes);
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('We have lift off'));
+    app.listen(PORT, () => console.log('We have lift off at 3001'));
 });

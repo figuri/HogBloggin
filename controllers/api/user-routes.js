@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const { User, Post, Comment } = require('../../models');
 
 // create user and sign up
-router.post('/signup', async (req, res) => {
+router.post('/user', async (req, res) => {
   try {
     const user = await User.create({
       username: req.body.username,
@@ -24,12 +24,15 @@ router.post('/signup', async (req, res) => {
 // get all users
 router.get('/user', async (req, res) => {
   try {
+    console.log("Received a request to /user");
     const userData = await User.findAll({
       include: [{ model: Post }, { model: Comment }],
     });
     res.status(200).json(userData);
+    console.log(res)
   } catch (err) {
     res.status(500).json(err);
+    console.log(err);
   }
 });
 

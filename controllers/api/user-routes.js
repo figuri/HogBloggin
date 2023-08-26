@@ -2,6 +2,7 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { User, Post, Comment } = require('../../models');
 
+// create user and sign up
 router.post('/signup', async (req, res) => {
   try {
     const user = await User.create({
@@ -20,6 +21,61 @@ router.post('/signup', async (req, res) => {
   }
 });
 
+// get all users
+router.get('/', async (req, res) => {
+  try {
+    const userData = await User.findAll({
+      include: [{ model: Post }, { model: Comment }],
+    });
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// get a single user by id
+router.get('/:id', async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.params.id, {
+      include: [{ model: Post }],
+    });
+    const user = userData.get({ plain: true });
+    res.json(user);
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err);
+  }
+});
+
+// edit a user by ID
+router.put('/:id', async (req, res) => {
+  try {
+    const updatedUser = await User.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.status(200).json(updatedUser);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// delete a user by ID
+router.delete('/:id', async (req, res) => {
+  try {
+    const deletedUser = await User.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.status(200).json(deletedUser);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// login
 router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
@@ -63,6 +119,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// logout
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {

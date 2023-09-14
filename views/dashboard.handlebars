@@ -5,24 +5,24 @@
   <link rel="stylesheet" href="/styles/dashboard.css" />
 </head>
 
-<header>
-  <h1>Dashboard</h1>
+<header class="dash">
+  <h1 class='page-name'>Dashboard</h1>
 </header>
 
-<div>
-  <h1>Welcome to Your Dashboard</h1>
+<div class="'post-form">
+  <h1 class="page-title">Welcome to Your Dashboard</h1>
   <a href="/create" class="btn">Create New Post</a>
 </div>
   {{!-- List the user's existing blog posts --}}
   {{#if posts}}
-    <h2>Your Blog Posts</h2>
-    <ul>
+    <h2 class="'my-posts">Your Blog Posts</h2>
+    <ul class="'posts">
       {{#each posts}}
-        <li>
+        <li class="post">
           <a href="/post/{{ id }}">{{ title }}</a>
           <span>{{ date_created }}</span>
-          <a href="/post/edit/{{ id }}" class="btn btn-secondary">Edit</a>
-          <a href="/post/delete/{{ id }}" class="btn btn-danger">Delete</a>
+          <a class="edit" href="/post/edit/{{ id }}" class="btn btn-secondary">Edit</a>
+          <a class="delete" href="/post/delete/{{ id }}" class="btn btn-danger">Delete</a>
         </li>
       {{/each}}
     </ul>

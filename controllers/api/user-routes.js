@@ -37,7 +37,7 @@ router.get('/user', async (req, res) => {
 });
 
 // get a single user by id
-router.get('user/:id', async (req, res) => {
+router.get('/user/:id', async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id, {
       include: [{ model: Post }],
@@ -51,7 +51,7 @@ router.get('user/:id', async (req, res) => {
 });
 
 // edit a user by ID
-router.put('user/:id', async (req, res) => {
+router.put('/user/:id', async (req, res) => {
   try {
     const updatedUser = await User.update(req.body, {
       where: {
@@ -65,7 +65,7 @@ router.put('user/:id', async (req, res) => {
 });
 
 // delete a user by ID
-router.delete('user/:id', async (req, res) => {
+router.delete('/user/:id', async (req, res) => {
   try {
     const deletedUser = await User.destroy({
       where: {

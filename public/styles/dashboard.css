@@ -1,0 +1,18 @@
+:root {
+    --lightblue: #4997d0;
+    --darkblue: #003366;
+    --pastelblue: #9aceeb;
+    --simplegrey: #a9a9a9;
+}
+
+.dash {
+ background-color: var(--lightblue);
+}
+
+.page-name{
+    font-size: 24px;
+    color: var(--darkblue);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+}
